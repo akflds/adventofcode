@@ -3,13 +3,14 @@
 from hashlib import md5
 
 
-def p1(inp):
+def p(inp, zeros):
     i = 0
     while True:
         h = md5((inp+str(i)).encode()).hexdigest()
-        if h[:6] == '000000':
+        if h[:zeros] == '0' * zeros:
             return i
         else:
             i += 1
 
-print(p1('yzbqklnj'))
+print(p('yzbqklnj',5))
+print(p('yzbqklnj',6))
