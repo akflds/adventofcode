@@ -3,7 +3,6 @@
 with open('/home/andrew/Downloads/2015-d6-input', 'r') as f:
     data = [line.strip().replace('turn ', '').replace('through ', '').split() for line in f]
 
-
 def init_lights():
     return [[0 for i in range(1000)] for j in range(1000)]
 
@@ -20,7 +19,6 @@ def illuminate(actions):
     return sum(sum(light) for light in lights)
 
 def p1():
-
     actions = {
             "on": lambda x: 1,
             "off": lambda x: 0,
