@@ -5,18 +5,15 @@ deers = dict()
 with open('/home/andrew/Downloads/2015-d14-input', 'r') as f:
     for line in f:
         l = line.split()
-        deers[l[0]] = {'speed': int(l[3]), 'duration': int(l[6]), 'rest': int(l[-2])}
+        deers[l[0]] = {'v': int(l[3]), 'd': int(l[6]), 'r': int(l[-2])}
 
 def race(s):
     td = dict()
     for k, v in deers.items():
-        d = (v['speed'] * v['duration']) * (s // (v['duration'] + v['rest']))
-        remainder = s % (v['duration'] + v['rest'])
-        if remainder - v['duration'] > 0:
-            d += v['speed'] * v['duration']
-        else:
-            d += v['speed'] * remainder
-        td[k] = d
+        # divmod returns quotient + remainder
+        q, r = divmod(s, v['d'] + v['r'])
+        # calculate the total travelling time * velocity
+        td[k] = (q * v['d'] + min(r, v['d'])) * v['v']
     return(td)
 
 print("Part 1:")
