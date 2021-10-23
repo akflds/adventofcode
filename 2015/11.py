@@ -30,5 +30,5 @@ def get_new_pass(old):
         new = increment(new)
     return new
 
-print(get_new_pass('hepxcrrq'))
-print(get_new_pass(get_new_pass('hepxcrrq')))
+print(get_new_pass('REDACTED'))
+print(get_new_pass(get_new_pass('REDACTED')))
