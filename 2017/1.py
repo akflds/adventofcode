@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 
-import enum
-
-
 with open('1.txt') as f:
         data = f.readline().strip()
 
