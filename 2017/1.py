@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+import enum
+
+
 with open('1.txt') as f:
         data = f.readline().strip()
 
@@ -14,6 +17,15 @@ def p1():
         print(total)
 
 def p2():
-    return True
+        total = 0
+        digits = [int(x) for x in str(data)]
+        mid = int(len(digits) / 2)
+        
+        for i, d in enumerate(digits):
+                if d == digits[(i + mid) % len(digits)]:
+                        total += d
+                
+        print(total)
 
 p1()
+p2()
