@@ -1,16 +1,19 @@
 #!/usr/bin/python3
 
-
-with open('/mnt/c/Misc/2017-d1-input') as f:
-        data = f.readline()
+with open('1.txt') as f:
+        data = f.readline().strip()
 
 def p1():
-        d = str(data)
-        e = [int(x) for x in d]
-        print(e)
+        total = 0
+        digits = [int(x) for x in str(data)]
+        for i in range(0, len(digits)):
+                if i < len(digits) - 1 and digits[i] == digits[i+1]:
+                        total += digits[i]
+                elif  i == len(digits) - 1 and digits[i] == digits[0]:
+                        total += digits[i]
+        print(total)
 
 def p2():
     return True
 
-print(p1())
-print(p2())
+p1()
